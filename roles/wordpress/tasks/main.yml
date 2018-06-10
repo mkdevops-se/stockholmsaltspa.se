@@ -1,7 +1,7 @@
 ---
 
-- name: first placeholder task; should implement something like https://docs.docker.com/compose/wordpress/#define-the-project here
-  shell: echo "go to https://docs.docker.com/compose/wordpress/#define-the-project and implement in Ansible"
+- name: first placeholder task; should be completed by ...
+  shell: echo "TODO! Go to https://docs.docker.com/compose/wordpress/#define-the-project and implement equivalent in Ansible here"
   tags: wordpress, mariadb
 
 ...
