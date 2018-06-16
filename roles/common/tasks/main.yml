@@ -1,0 +1,43 @@
+---
+
+- name: set timezone to europe/stockholm
+  copy: src=/usr/share/zoneinfo/Europe/Stockholm dest=/etc/localtime
+  tags: common
+
+- name: install ntp
+  yum: name=ntp state=present
+  tags: common
+
+- name: ntpd running and enabled
+  service: name=ntpd state=started enabled=yes
+  tags: common
+
+- name: install firewalld
+  yum: name=firewalld state=present
+  tags: common
+
+- name: firewalld running and enabled
+  service: name=firewalld state=started enabled=yes
+  tags: common
+
+- name: epel repo
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: http://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    gpgkey: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever
+  tags: common
+
+- name: install epel-release
+  yum: name=epel-release state=present
+  tags: common
+
+- name: install htop, jq and python-pip
+  yum: name={{ item }} state=present
+  with_items:
+    - htop
+    - jq
+    - python-pip
+  tags: common
+
+...
