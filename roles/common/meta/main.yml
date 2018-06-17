@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: Victoria Tepliuk
-  description: Provisioning of commonly needed utilities and configurations.
+  description: Provisioning of commonly needed utilities/configurations + sysadmin accounts.
   company: vtepliuk Consulting
 
   license: Apache-2.0
