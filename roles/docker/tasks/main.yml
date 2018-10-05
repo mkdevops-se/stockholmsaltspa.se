@@ -23,10 +23,6 @@
   yum: name=docker-ce-18.03.1.ce state=present allow_downgrade=yes
   tags: docker
 
-- name: pip-install docker-py
-  pip: name=docker-py
-  tags: docker
-
 - name: add docker-ce version lock
   shell: yum versionlock docker-ce
   changed_when: no
