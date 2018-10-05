@@ -1,37 +1,7 @@
 ---
 
-- name: mysql server started
-  docker_container:
-    name: db
-    hostname: "{{ inventory_hostname }}"
-    image: mysql:5.7
-    state: started
-    restart_policy: unless-stopped
-    volume_driver: local
-    volumes:
-      - wordpress_db:/var/lib/mysql
-    env:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-  tags: wordpress
-
-- name: wordpress cms started
-  docker_container:
-    name: wordpress
-    hostname: "{{ inventory_hostname }}"
-    image: wordpress:latest
-    state: started
-    restart_policy: unless-stopped
-    links:
-      - db
-    ports:
-      - 8000:80
-    env:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-  tags: wordpress
+- name: first placeholder task; should be completed by ...
+  shell: echo "TODO! Go to https://docs.docker.com/compose/wordpress/#define-the-project and implement equivalent in Ansible here"
+  tags: wordpress, mariadb
 
 ...
