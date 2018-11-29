@@ -1,0 +1,7 @@
+---
+
+hostname: "{{ inventory_hostname }}"
+
+local_port: 80
+
+...

@@ -1,37 +1,21 @@
 ---
 
-- name: mysql server started
-  docker_container:
-    name: db
-    hostname: "{{ inventory_hostname }}"
-    image: mysql:5.7
-    state: started
-    restart_policy: unless-stopped
-    volume_driver: local
-    volumes:
-      - wordpress_db:/var/lib/mysql
-    env:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+- name: add /opt/mjlife.se/ dir
+  file:
+    path: /opt/mjlife.se
+    state: directory
   tags: wordpress
 
-- name: wordpress cms started
-  docker_container:
-    name: wordpress
-    hostname: "{{ inventory_hostname }}"
-    image: wordpress:latest
-    state: started
-    restart_policy: unless-stopped
-    links:
-      - db
-    ports:
-      - 8000:80
-    env:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+- name: upload docker-compose.yml
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/mjlife.se/docker-compose.yml
+  tags: wordpress
+
+- name: docker-compose up
+  docker_service:
+    project_name: mjlife.se
+    project_src: /opt/mjlife.se/
   tags: wordpress
 
 ...
