@@ -5,7 +5,6 @@ services:
   mjlife_db:
     image: mysql:5.7
     container_name: mjlife_db
-    hostname: {{ hostname }}
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=wordpress
@@ -18,9 +17,8 @@ services:
     restart: unless-stopped
 
   mjlife_wordpress:
-    image: wordpress:latest
+    image: mblomdahl/wordpress
     container_name: mjlife_wordpress
-    hostname: {{ hostname }}
     environment:
       - WORDPRESS_DB_HOST=mjlife_db:3306
       - WORDPRESS_DB_USER=wordpress
@@ -35,7 +33,6 @@ services:
 
 volumes:
   mjlife_db:
-  mjlife_wordpress:
 
 networks:
   mjlife:
