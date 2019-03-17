@@ -1,21 +1,21 @@
 ---
 
-- name: add /opt/mjlife.se/ dir
+- name: add /opt/stockholmsaltspa.se/ dir
   file:
-    path: /opt/mjlife.se
+    path: /opt/stockholmsaltspa.se
     state: directory
   tags: wordpress
 
 - name: upload docker-compose.yml
   template:
     src: docker-compose.yml.j2
-    dest: /opt/mjlife.se/docker-compose.yml
+    dest: /opt/stockholmsaltspa.se/docker-compose.yml
   tags: wordpress
 
 - name: docker-compose up
   docker_service:
-    project_name: mjlife.se
-    project_src: /opt/mjlife.se/
+    project_name: stockholmsaltspa.se
+    project_src: /opt/stockholmsaltspa.se/
   tags: wordpress
 
 ...

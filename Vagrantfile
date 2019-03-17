@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-VAGRANT_NAME="vagrant.mjlife.se"
+VAGRANT_NAME="vagrant.stockholmsaltspa.com"
 
 Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.box_check_update = false
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.network "private_network", ip: "10.187.57.250"
+  config.vm.network "private_network", ip: "10.187.57.251"
 
   config.vm.define VAGRANT_NAME
   config.vm.provider "virtualbox" do |vb|

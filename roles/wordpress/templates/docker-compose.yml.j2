@@ -2,39 +2,39 @@
 
 version: '3.7'
 services:
-  mjlife_db:
+  stockholmsaltspa_db:
     image: mysql:5.7
-    container_name: mjlife_db
+    container_name: stockholmsaltspa_db
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=wordpress
       - MYSQL_USER=wordpress
       - MYSQL_PASSWORD=wordpress
     volumes:
-      - mjlife_db:/var/lib/mysql
+      - stockholmsaltspa_db:/var/lib/mysql
     networks:
-      - mjlife
+      - stockholmsaltspa
     restart: unless-stopped
 
-  mjlife_wordpress:
+  stockholmsaltspa_wordpress:
     image: mblomdahl/wordpress
-    container_name: mjlife_wordpress
+    container_name: stockholmsaltspa_wordpress
     environment:
-      - WORDPRESS_DB_HOST=mjlife_db:3306
+      - WORDPRESS_DB_HOST=stockholmsaltspa_db:3306
       - WORDPRESS_DB_USER=wordpress
       - WORDPRESS_DB_PASSWORD=wordpress
     networks:
-      - mjlife
+      - stockholmsaltspa
     links:
-      - mjlife_db
+      - stockholmsaltspa_db
     ports:
       - {{ local_port }}:80
     restart: unless-stopped
 
 volumes:
-  mjlife_db:
+  stockholmsaltspa_db:
 
 networks:
-  mjlife:
+  stockholmsaltspa:
 
 ...

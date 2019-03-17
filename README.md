@@ -1,8 +1,8 @@
 
-mjlife.se
-=========
+stockholmsaltspa.se
+===================
 
-Provisioning of mjlife.se WordPress site.
+Provisioning of stockholmsaltspa.se WordPress site.
 
 
 Dev Environment
