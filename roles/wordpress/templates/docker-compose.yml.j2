@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   stockholmsaltspa_wordpress:
-    image: mblomdahl/wordpress
+    image: wordpress:5.1.1
     container_name: stockholmsaltspa_wordpress
     environment:
       - WORDPRESS_DB_HOST=stockholmsaltspa_db:3306
