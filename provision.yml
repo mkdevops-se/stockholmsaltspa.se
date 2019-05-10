@@ -6,4 +6,9 @@
     - role: common
     - role: wordpress
 
+    - role: nginx
+      vhosts:
+        - name: staging.stockholmsaltspa.se
+          max_upload_size: 32M
+          proxy_buffering: no
 ...
