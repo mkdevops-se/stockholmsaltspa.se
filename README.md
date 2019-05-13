@@ -8,11 +8,12 @@ Provisioning of stockholmsaltspa.se WordPress site.
 Dev Environment
 ---------------
 
-Create a virtualenv and install pip requirements:
+Create a virtualenv and install requirements:
 
     virtualenv venv
     source venv/bin/activate
     pip install -r requirements.txt
+    ansible-galaxy install -r requirements.yml
 
 
 Testing with Vagrant
