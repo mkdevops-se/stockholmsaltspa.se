@@ -2,6 +2,6 @@
 
 hostname: "{{ inventory_hostname }}"
 
-local_port: 80
+local_port: 8080
 
 ...
