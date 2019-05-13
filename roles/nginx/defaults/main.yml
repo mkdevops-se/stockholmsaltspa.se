@@ -1,0 +1,6 @@
+---
+
+vhosts: []  # Supports a list of `{'name': <hostname>, 'local_port': <port>, 'local_path': <path>,
+            # 'basic_auth': <yes/no>}` dicts.
+
+...
