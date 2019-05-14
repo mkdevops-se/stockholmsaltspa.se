@@ -40,8 +40,8 @@
     state: present
   tags: common
 
-- name: install pip
-  yum: name=python-pip state=latest
+- name: install pip-18.1
+  pip: name=pip version=18.1 state=present
   tags: common
 
 - name: configure sysadmin accounts
