@@ -44,6 +44,43 @@
   pip: name=pip version=18.1 state=present
   tags: common
 
+- name: ius repo
+  yum_repository:
+    name: ius
+    description: IUS Community Packages for Enterprise Linux {{
+                 ansible_distribution_major_version }} - $basearch
+    mirrorlist: https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos{{
+                ansible_distribution_major_version }}&arch=$basearch&protocol=http
+    gpgkey: https://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY
+    enabled: no
+  tags: common
+
+- name: install modern git version from ius
+  yum: name=git2u enablerepo=ius state=present
+  tags: common
+
+- name: check for git-lfs
+  shell: git lfs version
+  register: check_git_lfs_version
+  ignore_errors: yes
+  changed_when: no
+  tags: common
+
+- block:
+    - name: run git lfs install script
+      shell: bash -ilc "curl -s
+             https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash"
+      tags: common
+
+    - name: yum intall git-lfs
+      shell: yum install -y git-lfs && git lfs install
+      args:
+        warn: no
+      tags: common
+
+  when: check_git_lfs_version is failed
+
+
 - name: uninstall python-requests
   yum: name=python-requests state=absent
   tags: common
