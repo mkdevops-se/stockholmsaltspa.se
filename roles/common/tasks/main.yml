@@ -44,6 +44,10 @@
   pip: name=pip version=18.1 state=present
   tags: common
 
+- name: uninstall python-requests
+  yum: name=python-requests state=absent
+  tags: common
+
 - name: configure sysadmin accounts
   user:
     name: "{{ item }}"
