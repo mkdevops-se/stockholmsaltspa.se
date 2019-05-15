@@ -53,6 +53,7 @@
     name: "{{ item }}"
     password: "{{ default_sysadmin_passwd }}"
     groups: wheel
+    append: yes
     state: present
   with_items: "{{ sysadmins }}"
   tags: common
