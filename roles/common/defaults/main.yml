@@ -4,4 +4,6 @@ sysadmins:
   - vtepliuk
   - mblomdahl
 
+default_sysadmin_passwd: $6$fAx.u7Ka$xsKQ/UzXOICAECWUjf0pf7lpOiIVL/zLjOO7lOobWWuFl1nNMAbEchk2P9U38zZfGj3DsM7QY538dzNs8qajJ/
+
 ...

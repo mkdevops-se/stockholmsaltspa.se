@@ -51,9 +51,9 @@
 - name: configure sysadmin accounts
   user:
     name: "{{ item }}"
+    password: "{{ default_sysadmin_passwd }}"
     groups: wheel
     state: present
-    force: yes
   with_items: "{{ sysadmins }}"
   tags: common
 
