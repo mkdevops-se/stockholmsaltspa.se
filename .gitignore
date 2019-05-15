@@ -1,3 +1,5 @@
 .idea/
 .vagrant/
 venv/
+roles/geerlingguy.certbot/
+SECRETS.md
