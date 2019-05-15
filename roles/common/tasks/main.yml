@@ -4,6 +4,10 @@
   copy: src=/usr/share/zoneinfo/Europe/Stockholm dest=/etc/localtime
   tags: common
 
+- name: align server hostname with that from the inventory
+  hostname: name={{ inventory_hostname }}
+  tags: common
+
 - name: install ntp
   yum: name=ntp state=present
   tags: common
