@@ -10,6 +10,18 @@ server {
     }
 }
 
+server {
+    listen         80;
+    server_name    www.stockholmsaltspa.com;
+
+    location / {
+        return 301 https://stockholmsaltspa.se/;
+    }
+
+    access_log /var/log/nginx/www.stockholmsaltspa.com-access.log;
+    error_log /var/log/nginx/www.stockholmsaltspa.com-error.log;
+}
+
 {% for vhost in vhosts -%}
 
 server {
